@@ -88,8 +88,6 @@ const initVenon = async () => {
     headless: true,// Headless chrome
     disableSpins: true,//Will disable Spinnies animation, useful for containers (docker) for a better log
     disableWelcome: true // Will disable the welcoming message which appears in the beginning
-  }).then(client => {
-    client.sendFileFromBase64(to, base64, filename, caption)
   });
 
   await venomClient.getSessionTokenBrowser();
