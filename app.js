@@ -60,6 +60,25 @@ app.post('/send-message', verifyIfRequestIfValid, (req, res) => {
   }
 })
 
+app.post('/send-link-preview', verifyIfRequestIfValid, (req, res) => {
+  const { to, link_preview, message } = req.body;
+
+  if (!to || !message || to == '' || message == '' || !link_preview || link_preview == '') {
+    res.status(400).send();
+    return;
+  }
+
+
+  try {
+
+    venomClient.sendLinkPreview(to, link_preview, message);
+    res.status(201).send({});
+
+  } catch (error) {
+    res.status(500).send(error);
+  }
+})
+
 app.post('/send-image', verifyIfRequestIfValid, (req, res) => {
   const { to, base64, filename, description } = req.body;
 
@@ -75,6 +94,8 @@ app.post('/send-image', verifyIfRequestIfValid, (req, res) => {
     res.status(500).send(error);
   }
 })
+
+
 
 // app.post('/send-video', verifyIfRequestIfValid, (req, res) => {
 //   const { chatId, url, title } = req.body;
@@ -99,6 +120,16 @@ app.listen(process.env.PORT, async () => {
   await initVenon();
 });
 
+const chromiumArgs = [
+  '--disable-web-security', '--no-sandbox', '--disable-web-security',
+  '--aggressive-cache-discard', '--disable-cache', '--disable-application-cache',
+  '--disable-offline-load-stale-cache', '--disk-cache-size=0',
+  '--disable-background-networking', '--disable-default-apps', '--disable-extensions',
+  '--disable-sync', '--disable-translate', '--hide-scrollbars', '--metrics-recording-only',
+  '--mute-audio', '--no-first-run', '--safebrowsing-disable-auto-update',
+  '--ignore-certificate-errors', '--ignore-ssl-errors', '--ignore-certificate-errors-spki-list'
+];
+
 const initVenon = async () => {
   venomClient = await venom.create({
     session: 'whatsapp-api', //name of session
@@ -106,6 +137,7 @@ const initVenon = async () => {
     createPathFileToken: true,
     headless: true,// Headless chrome
     disableSpins: true,//Will disable Spinnies animation, useful for containers (docker) for a better log
-    disableWelcome: true // Will disable the welcoming message which appears in the beginning
+    disableWelcome: true, // Will disable the welcoming message which appears in the beginning
+    browserArgs: chromiumArgs
   });
 }
