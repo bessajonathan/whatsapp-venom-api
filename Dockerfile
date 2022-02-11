@@ -1,4 +1,4 @@
-FROM buildkite/puppeteer as build
+﻿FROM buildkite/puppeteer as build
 
 # Create app directory
 WORKDIR /usr/src/app
