@@ -94,23 +94,23 @@ const verifyIfRequestIfValid = async (req: Request, res: Response, next: NextFun
   })
   
   
+  //await multiDevice support
+  // routes.post('/send-video', verifyIfRequestIfValid, (req: Request, res: Response) => {
+  //   const { chatId, url, title } = req.body;
   
-  routes.post('/send-video', verifyIfRequestIfValid, (req: Request, res: Response) => {
-    const { chatId, url, title } = req.body;
+  //   if (chatId == '' || url == '' || title == '') {
+  //     return res.status(400).send();
+  //   }
   
-    if (chatId == '' || url == '' || title == '') {
-      return res.status(400).send();
-    }
+  //   try {
   
-    try {
+  //     venomClient.sendLinkPreview(chatId, url, title);
+  //     res.status(201).send({});
   
-      venomClient.sendLinkPreview(chatId, url, title);
-      res.status(201).send({});
-  
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  })
+  //   } catch (error) {
+  //     res.status(500).send(error);
+  //   }
+  // })
 
   export default routes;
 

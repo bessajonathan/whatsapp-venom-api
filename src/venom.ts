@@ -11,7 +11,7 @@ const chromiumArgs = [
   '--ignore-certificate-errors', '--ignore-ssl-errors', '--ignore-certificate-errors-spki-list'
 ];
 
-const initVenon = async () => {
+const initVenom = async () => {
   try {
     venomClient = await create({
       session: 'whatsapp-api', //name of session
@@ -29,6 +29,6 @@ const initVenon = async () => {
 }
 
 export {
-  initVenon,
+  initVenom,
   venomClient
 };

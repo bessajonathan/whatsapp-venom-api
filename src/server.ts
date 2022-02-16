@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 import express from "express";
-import {initVenon} from "./venom";
+import {initVenom} from "./venom";
 import routes from "./routes";
 
 config();
@@ -11,5 +11,5 @@ app.use(routes);
 app.listen(process.env.PORT, async () => {
   console.log(`listening at the door ${process.env.PORT}`);
 
-  await initVenon();
+  await initVenom();
 });
