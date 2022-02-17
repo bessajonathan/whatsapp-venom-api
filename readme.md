@@ -23,6 +23,7 @@ As Whatsapp updates regularly, we always need to use the latest version of venom
 
 ```
 url: http://localhost:3001/send-message
+header: 'x-api-key: YOUR KEY'
 
 body:{
     "to":"5500000000000@c.us",
