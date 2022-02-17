@@ -8,10 +8,12 @@ As Whatsapp updates regularly, we always need to use the latest version of venom
 
 # How to use?
 
-Clone or download this repo
-Enter to the project directory
-Run npm install
-Run npm run start
-Open browser and go to address http://localhost:3001
-Scan the QR Code
-Enjoy!
+<ul>
+<li>Clone or download this repo</li>
+<li>Enter to the project directory</li>
+<li>Run npm install</li>
+<li>Run npm run start</li>
+<li>Open browser and go to address http://localhost:3001</li>
+<li>Scan the QR Code</li>
+<li>Enjoy!</li>
+</ul>
