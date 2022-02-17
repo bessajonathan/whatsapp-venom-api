@@ -13,10 +13,26 @@ As Whatsapp updates regularly, we always need to use the latest version of venom
 <li>Enter to the project directory</li>
 <li>Run npm install</li>
 <li>Run npm run start</li>
+<li>Edit variables in .env</li>
 <li>Open browser and go to address http://localhost:3001</li>
 <li>Scan the QR Code</li>
 <li>Enjoy!</li>
 </ul>
+
+# Request Example
+
+```
+url: http://localhost:3001/send-message
+
+body:{
+    "to":"5500000000000@c.us",
+    "message":"test"
+}
+```
+
+# Contribution
+
+If you want to contribute, open a pull request
 
 # Buy me a Coffe
 
