@@ -31,6 +31,26 @@ body:{
 }
 ```
 
+```
+url: http://localhost:3001/send-image
+header: 'x-api-key: YOUR KEY'
+
+body:{
+    "to":"5500000000000@c.us",
+    "filename":"filename",
+    "message":"test",
+    "base64":"imageBase64"
+}
+```
+
+## if I need to scan the qrCode again use
+
+```
+url: http://localhost:3001/venom-reboot
+header: 'x-api-key: YOUR KEY'
+
+```
+
 # Contribution
 
 If you want to contribute, open a pull request
