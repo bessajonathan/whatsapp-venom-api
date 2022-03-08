@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { initVenom } from "../venom";
 
-const rebootVenom = (req: Request, res: Response) => {
+const rebootVenom = async (req: Request, res: Response) => {
   try {
-    initVenom();
+    await initVenom();
     res.status(201).send({
       message: "Venon reboot,please scanner new qrcode",
     });
