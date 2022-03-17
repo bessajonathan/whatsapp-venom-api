@@ -14,7 +14,7 @@
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
-    "venom-bot": "^4.0.7"
+    "venom-bot": "^4.0.9"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
