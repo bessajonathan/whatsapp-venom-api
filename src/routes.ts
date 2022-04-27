@@ -4,6 +4,7 @@ import { base64QrCode, status } from "./venom";
 import {
   sendMessage,
   sendImage,
+  checkNumber,
   sendVideo,
 } from "./controllers/send_controller";
 import { rebootVenom } from "./controllers/venom_controller";
@@ -30,6 +31,8 @@ routes.post(
 );
 
 routes.post("/send-image", isAuth, venomInjected, validadeNumber, sendImage);
+
+routes.post("/check-number", isAuth, venomInjected, validadeNumber, checkNumber);
 
 //await multiDevice support
 //routes.post("/send-video", isAuth, venomInjected, validadeNumber, sendVideo);
