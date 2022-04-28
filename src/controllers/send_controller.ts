@@ -31,6 +31,24 @@ const sendImage = async (req: Request, res: Response) => {
   }
 };
 
+const checkNumber = async (req: Request, res: Response) => {
+  const { to } = req.body;
+
+  if (to == "")
+    return res.status(400).send();
+
+  try {
+    await venomClient.checkNumberStatus(to)
+    .then(() => {
+      res.status(201).send({});
+  }).catch(() => {
+    res.status(400).send({});
+  });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 const sendVideo = async (req: Request, res: Response) => {
   const { to, url, message } = req.body;
 
@@ -46,4 +64,4 @@ const sendVideo = async (req: Request, res: Response) => {
   }
 };
 
-export { sendMessage, sendImage, sendVideo };
+export { sendMessage, sendImage, sendVideo, checkNumber };
